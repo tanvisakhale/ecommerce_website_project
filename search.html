@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - E-Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">E-Shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="category.html">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <form class="d-flex ms-3" role="search" action="products.html" method="get" style="max-width:250px;">
+        <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Search products..." aria-label="Search">
+        <button class="btn btn-outline-primary btn-sm" type="submit" aria-label="Search"><i class="bi bi-search"></i></button>
+      </form>
+      <a class="nav-link px-2 ms-2" href="cart.html" aria-label="Cart" title="Cart">
+        <i class="bi bi-cart3 fs-5"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Search Hero Section -->
+<section class="py-5 bg-primary text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-4">Find What You're Looking For</h1>
+        <p class="lead mb-5">Search through our extensive collection of products</p>
+        
+        <!-- Main Search Bar -->
+        <div class="search-container">
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="mainSearchInput" placeholder="Search for products, categories, brands..." autocomplete="off">
+            <button class="btn btn-light" type="button" id="mainSearchBtn">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+          
+          <!-- Search Suggestions -->
+          <div id="searchSuggestions" class="search-suggestions" style="display: none;">
+            <!-- Suggestions will be populated here -->
+          </div>
+        </div>
+        
+        <!-- Popular Searches -->
+        <div class="mt-4">
+          <p class="mb-2">Popular searches:</p>
+          <div class="popular-searches">
+            <button class="btn btn-outline-light btn-sm me-2 mb-2" onclick="quickSearch('headphones')">Headphones</button>
+            <button class="btn btn-outline-light btn-sm me-2 mb-2" onclick="quickSearch('smartphone')">Smartphone</button>
+            <button class="btn btn-outline-light btn-sm me-2 mb-2" onclick="quickSearch('laptop')">Laptop</button>
+            <button class="btn btn-outline-light btn-sm me-2 mb-2" onclick="quickSearch('shoes')">Shoes</button>
+            <button class="btn btn-outline-light btn-sm me-2 mb-2" onclick="quickSearch('watch')">Watch</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Advanced Search Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Search Filters -->
+      <div class="col-lg-3">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">Search Filters</h5>
+          </div>
+          <div class="card-body">
+            <!-- Category Filter -->
+            <div class="mb-4">
+              <h6>Category</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="catElectronics" value="electronics">
+                <label class="form-check-label" for="catElectronics">Electronics</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="catFashion" value="fashion">
+                <label class="form-check-label" for="catFashion">Fashion</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="catHome" value="home">
+                <label class="form-check-label" for="catHome">Home & Garden</label>
+              </div>
+            </div>
+            
+            <!-- Price Range -->
+            <div class="mb-4">
+              <h6>Price Range</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="priceRange" id="priceAll" value="all" checked>
+                <label class="form-check-label" for="priceAll">All Prices</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="priceRange" id="priceUnder1000" value="0-1000">
+                <label class="form-check-label" for="priceUnder1000">Under ₹1,000</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="priceRange" id="price1000to5000" value="1000-5000">
+                <label class="form-check-label" for="price1000to5000">₹1,000 - ₹5,000</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="priceRange" id="price5000to10000" value="5000-10000">
+                <label class="form-check-label" for="price5000to10000">₹5,000 - ₹10,000</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="priceRange" id="priceOver10000" value="10000-100000">
+                <label class="form-check-label" for="priceOver10000">Over ₹10,000</label>
+              </div>
+            </div>
+            
+            <!-- Sort Options -->
+            <div class="mb-4">
+              <h6>Sort By</h6>
+              <select class="form-select" id="sortSelect">
+                <option value="relevance">Relevance</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name">Name A-Z</option>
+                <option value="newest">Newest First</option>
+              </select>
+            </div>
+            
+            <button class="btn btn-primary w-100" onclick="applyAdvancedSearch()">
+              <i class="bi bi-funnel"></i> Apply Filters
+            </button>
+          </div>
+        </div>
+        
+        <!-- Recent Searches -->
+        <div class="card mt-3">
+          <div class="card-header">
+            <h6 class="mb-0">Recent Searches</h6>
+          </div>
+          <div class="card-body">
+            <div id="recentSearches">
+              <!-- Recent searches will be populated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Search Results -->
+      <div class="col-lg-9">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h4 id="searchResultsTitle">Search Results</h4>
+          <div class="d-flex align-items-center">
+            <span class="me-3">Showing <span id="resultCount">0</span> results</span>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-outline-primary active" onclick="setViewMode('grid')">
+                <i class="bi bi-grid"></i>
+              </button>
+              <button type="button" class="btn btn-outline-primary" onclick="setViewMode('list')">
+                <i class="bi bi-list"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- No Results Message -->
+        <div id="noResults" class="text-center py-5" style="display: none;">
+          <i class="bi bi-search display-1 text-muted mb-3"></i>
+          <h4>No results found</h4>
+          <p class="text-muted">Try adjusting your search terms or filters</p>
+          <button class="btn btn-primary" onclick="clearSearch()">Clear Search</button>
+        </div>
+        
+        <!-- Search Results Grid -->
+        <div id="searchResults" class="row">
+          <!-- Search results will be populated here -->
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="text-center mt-4" id="loadMoreContainer" style="display: none;">
+          <button class="btn btn-outline-primary" onclick="loadMoreResults()">
+            <i class="bi bi-arrow-down"></i> Load More Results
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Search Tips -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h3 class="text-center mb-4">Search Tips</h3>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center">
+            <i class="bi bi-lightbulb text-warning display-4 mb-3"></i>
+            <h5>Use Keywords</h5>
+            <p class="text-muted">Try different keywords to find what you're looking for. For example, search for "wireless" instead of "bluetooth".</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center">
+            <i class="bi bi-funnel text-primary display-4 mb-3"></i>
+            <h5>Use Filters</h5>
+            <p class="text-muted">Narrow down your search using category and price filters to find exactly what you need.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center">
+            <i class="bi bi-star text-success display-4 mb-3"></i>
+            <h5>Check Reviews</h5>
+            <p class="text-muted">Read product reviews and ratings to make informed decisions about your purchases.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-white py-4">
+  <div class="container text-center">
+    <p>&copy; 2025 E-Shop. All rights reserved.</p>
+    <p>
+      <a href="about.html" class="text-white">About Us</a> |
+      <a href="contact.html" class="text-white">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button id="scrollTopBtn" class="btn btn-primary position-fixed d-none" style="bottom:20px;right:20px;z-index:1000;">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<script>
+  // Show scroll-to-top button only when scrolling down
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      scrollBtn.classList.remove('d-none');
+    } else {
+      scrollBtn.classList.add('d-none');
+    }
+  };
+  scrollBtn.onclick = function() {
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  
+  // Search page specific functionality
+  let currentSearchQuery = '';
+  let currentViewMode = 'grid';
+  let searchResults = [];
+  let recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
+  
+  // Search suggestions
+  const searchSuggestions = [
+    'headphones', 'smartphone', 'laptop', 'shoes', 'watch', 'bag', 'dress', 'shirt',
+    'wireless', 'bluetooth', 'gaming', 'fitness', 'running', 'casual', 'formal',
+    'coffee maker', 'blender', 'toaster', 'microwave', 'vacuum', 'lamp', 'cushion'
+  ];
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('mainSearchInput');
+    const searchBtn = document.getElementById('mainSearchBtn');
+    const suggestionsContainer = document.getElementById('searchSuggestions');
+    
+    // Search input functionality
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      if (query.length > 0) {
+        showSearchSuggestions(query);
+      } else {
+        suggestionsContainer.style.display = 'none';
+      }
+    });
+    
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch(this.value);
+      }
+    });
+    
+    searchBtn.addEventListener('click', function() {
+      performSearch(searchInput.value);
+    });
+    
+    // Load recent searches
+    loadRecentSearches();
+    
+    // If URL has a query parameter, run that search initially
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialQuery = urlParams.get('q');
+    if (initialQuery && initialQuery.trim()) {
+      searchInput.value = initialQuery;
+      const navSearchInput = document.querySelector('form[role="search"] input[name="q"]');
+      if (navSearchInput) navSearchInput.value = initialQuery;
+      performSearch(initialQuery);
+    } else {
+      // Initialize with all products
+      searchResults = products;
+      displaySearchResults(searchResults);
+    }
+  });
+  
+  function showSearchSuggestions(query) {
+    const suggestions = searchSuggestions.filter(suggestion => 
+      suggestion.toLowerCase().includes(query)
+    ).slice(0, 5);
+    
+    const suggestionsContainer = document.getElementById('searchSuggestions');
+    suggestionsContainer.innerHTML = '';
+    
+    if (suggestions.length > 0) {
+      suggestions.forEach(suggestion => {
+        const div = document.createElement('div');
+        div.className = 'suggestion-item';
+        div.textContent = suggestion;
+        div.addEventListener('click', () => {
+          document.getElementById('mainSearchInput').value = suggestion;
+          performSearch(suggestion);
+        });
+        suggestionsContainer.appendChild(div);
+      });
+      suggestionsContainer.style.display = 'block';
+    } else {
+      suggestionsContainer.style.display = 'none';
+    }
+  }
+  
+  function performSearch(query) {
+    if (!query.trim()) return;
+    
+    currentSearchQuery = query;
+    
+    // Add to recent searches
+    if (!recentSearches.includes(query)) {
+      recentSearches.unshift(query);
+      recentSearches = recentSearches.slice(0, 10); // Keep only 10 recent searches
+      localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
+      loadRecentSearches();
+    }
+    
+    // Filter products
+    searchResults = products.filter(product => 
+      product.name.toLowerCase().includes(query.toLowerCase()) ||
+      product.category.toLowerCase().includes(query.toLowerCase())
+    );
+    
+    displaySearchResults(searchResults);
+    document.getElementById('searchSuggestions').style.display = 'none';
+    
+    // Update page title
+    document.getElementById('searchResultsTitle').textContent = `Search Results for "${query}"`;
+  }
+  
+  function displaySearchResults(results) {
+    const container = document.getElementById('searchResults');
+    const noResults = document.getElementById('noResults');
+    const resultCount = document.getElementById('resultCount');
+    
+    resultCount.textContent = results.length;
+    
+    if (results.length === 0) {
+      container.innerHTML = '';
+      noResults.style.display = 'block';
+      return;
+    }
+    
+    noResults.style.display = 'none';
+    container.innerHTML = '';
+    
+    results.forEach(product => {
+      const productCard = document.createElement('div');
+      productCard.className = currentViewMode === 'grid' ? 'col-md-6 col-lg-4 mb-3' : 'col-12 mb-3';
+      
+      if (currentViewMode === 'grid') {
+        productCard.innerHTML = `
+          <div class="card h-100">
+            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+            <div class="card-body d-flex flex-column">
+              <h6 class="card-title">${product.name}</h6>
+              <p class="card-text text-primary fw-bold">₹${product.price.toFixed(2)}</p>
+              <small class="text-muted">${product.category}</small>
+              <div class="mt-auto">
+                <button class="btn btn-primary btn-sm me-2" onclick="addToCart(${product.id})">
+                  <i class="bi bi-cart-plus"></i> Add to Cart
+                </button>
+                <a href="product-view.html?id=${product.id}" class="btn btn-outline-secondary btn-sm">View</a>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        productCard.innerHTML = `
+          <div class="card">
+            <div class="row g-0">
+              <div class="col-md-3">
+                <img src="${product.image}" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="${product.name}">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h5 class="card-title">${product.name}</h5>
+                  <p class="card-text text-primary fw-bold">₹${product.price.toFixed(2)}</p>
+                  <p class="card-text"><small class="text-muted">Category: ${product.category}</small></p>
+                  <button class="btn btn-primary me-2" onclick="addToCart(${product.id})">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                  </button>
+                  <a href="product-view.html?id=${product.id}" class="btn btn-outline-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      container.appendChild(productCard);
+    });
+  }
+  
+  function setViewMode(mode) {
+    currentViewMode = mode;
+    displaySearchResults(searchResults);
+    
+    // Update button states
+    document.querySelectorAll('.btn-group .btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+  }
+  
+  function applyAdvancedSearch() {
+    const selectedCategories = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+    const selectedPriceRange = document.querySelector('input[name="priceRange"]:checked').value;
+    const sortBy = document.getElementById('sortSelect').value;
+    
+    let filteredResults = products;
+    
+    // Apply category filter
+    if (selectedCategories.length > 0) {
+      filteredResults = filteredResults.filter(p => selectedCategories.includes(p.category));
+    }
+    
+    // Apply price filter
+    if (selectedPriceRange !== 'all') {
+      const [min, max] = selectedPriceRange.split('-').map(Number);
+      filteredResults = filteredResults.filter(p => p.price >= min && p.price <= max);
+    }
+    
+    // Apply search query if exists
+    if (currentSearchQuery) {
+      filteredResults = filteredResults.filter(p => 
+        p.name.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
+        p.category.toLowerCase().includes(currentSearchQuery.toLowerCase())
+      );
+    }
+    
+    // Apply sorting
+    switch(sortBy) {
+      case 'price-low':
+        filteredResults.sort((a, b) => a.price - b.price);
+        break;
+      case 'price-high':
+        filteredResults.sort((a, b) => b.price - a.price);
+        break;
+      case 'name':
+        filteredResults.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case 'newest':
+        filteredResults.sort((a, b) => b.id - a.id);
+        break;
+    }
+    
+    searchResults = filteredResults;
+    displaySearchResults(searchResults);
+  }
+  
+  function quickSearch(query) {
+    document.getElementById('mainSearchInput').value = query;
+    performSearch(query);
+  }
+  
+  function loadRecentSearches() {
+    const container = document.getElementById('recentSearches');
+    container.innerHTML = '';
+    
+    recentSearches.forEach(search => {
+      const div = document.createElement('div');
+      div.className = 'recent-search-item mb-2';
+      div.innerHTML = `
+        <a href="#" onclick="quickSearch('${search}')" class="text-decoration-none">
+          <i class="bi bi-clock me-2"></i>${search}
+        </a>
+      `;
+      container.appendChild(div);
+    });
+  }
+  
+  function clearSearch() {
+    document.getElementById('mainSearchInput').value = '';
+    currentSearchQuery = '';
+    searchResults = products;
+    displaySearchResults(searchResults);
+    document.getElementById('searchResultsTitle').textContent = 'Search Results';
+  }
+  
+  function loadMoreResults() {
+    // Simulate loading more results
+    showNotification('Loading more results...', 'info');
+    setTimeout(() => {
+      showNotification('No more results to load', 'info');
+    }, 1000);
+  }
+</script>
+
+<style>
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.suggestion-item:hover {
+  background-color: #f8f9fa;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.recent-search-item a {
+  color: #6c757d;
+}
+
+.recent-search-item a:hover {
+  color: #0d6efd;
+}
+</style>
+</body>
+</html>

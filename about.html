@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - E-Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">E-Shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="category.html">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <form class="d-flex ms-3" role="search" action="products.html" method="get" style="max-width:250px;">
+        <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Search products..." aria-label="Search">
+        <button class="btn btn-outline-primary btn-sm" type="submit" aria-label="Search"><i class="bi bi-search"></i></button>
+      </form>
+      <a class="nav-link px-2 ms-2" href="cart.html" aria-label="Cart" title="Cart">
+        <i class="bi bi-cart3 fs-5"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="py-5 bg-primary text-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold mb-4">About E-Shop</h1>
+        <p class="lead mb-4">Your trusted partner for quality products and exceptional service since 2020.</p>
+        <div class="d-flex align-items-center">
+          <div class="me-4 text-center">
+            <h3 class="mb-0" id="customerCount">50,000+</h3>
+            <small>Happy Customers</small>
+          </div>
+          <div class="me-4 text-center">
+            <h3 class="mb-0" id="productCount">1000+</h3>
+            <small>Products</small>
+          </div>
+          <div class="text-center">
+            <h3 class="mb-0" id="orderCount">25,000+</h3>
+            <small>Orders Delivered</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img src="images/about.jpg" alt="About E-Shop" class="img-fluid rounded">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Company Story -->
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2 class="mb-4">Our Story</h2>
+        <p class="lead">Founded in 2020, E-Shop began as a small local store with a big dream - to make quality products accessible to everyone.</p>
+        <p>What started as a humble beginning has now grown into one of the most trusted e-commerce platforms in India. Our journey has been marked by continuous innovation, customer-centric approach, and unwavering commitment to quality.</p>
+        <p>Today, we serve customers across the country, offering a wide range of products from electronics to fashion, home & garden, and much more. Our success is measured not just by our growth, but by the satisfaction of our customers.</p>
+        <div class="mt-4">
+          <button class="btn btn-primary me-3" onclick="showTimeline()">View Timeline</button>
+          <button class="btn btn-outline-primary" onclick="showMilestones()">Our Milestones</button>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-6 mb-4">
+            <div class="text-center p-4 bg-light rounded">
+              <i class="bi bi-award display-4 text-primary mb-3"></i>
+              <h5>Quality Assured</h5>
+              <p class="text-muted">All products are quality tested</p>
+            </div>
+          </div>
+          <div class="col-6 mb-4">
+            <div class="text-center p-4 bg-light rounded">
+              <i class="bi bi-truck display-4 text-success mb-3"></i>
+              <h5>Fast Delivery</h5>
+              <p class="text-muted">Free shipping on orders above ₹500</p>
+            </div>
+          </div>
+          <div class="col-6 mb-4">
+            <div class="text-center p-4 bg-light rounded">
+              <i class="bi bi-shield-check display-4 text-warning mb-3"></i>
+              <h5>Secure Payment</h5>
+              <p class="text-muted">100% secure payment gateway</p>
+            </div>
+          </div>
+          <div class="col-6 mb-4">
+            <div class="text-center p-4 bg-light rounded">
+              <i class="bi bi-headset display-4 text-info mb-3"></i>
+              <h5>24/7 Support</h5>
+              <p class="text-muted">Round the clock customer support</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Values -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-5">
+        <h2 class="mb-4">Our Mission</h2>
+        <p class="lead">To provide exceptional value to our customers through quality products, competitive prices, and outstanding service.</p>
+        <ul class="list-unstyled">
+          <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Quality products at competitive prices</li>
+          <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Exceptional customer service</li>
+          <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Fast and reliable delivery</li>
+          <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Secure and convenient shopping</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <h2 class="mb-4">Our Values</h2>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-heart text-danger display-5 mb-3"></i>
+                <h5>Customer First</h5>
+                <p class="text-muted">Our customers are at the heart of everything we do</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-lightbulb text-warning display-5 mb-3"></i>
+                <h5>Innovation</h5>
+                <p class="text-muted">Constantly evolving to meet changing needs</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-shield-check text-success display-5 mb-3"></i>
+                <h5>Integrity</h5>
+                <p class="text-muted">Honest and transparent in all our dealings</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-people text-primary display-5 mb-3"></i>
+                <h5>Teamwork</h5>
+                <p class="text-muted">Collaboration drives our success</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Meet Our Team</h2>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card team-card text-center">
+          <div class="card-body">
+            <img src="images/CEO & FOUNDER.jpg" alt="CEO" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+            <h5>Rahul Sharma</h5>
+            <p class="text-muted">CEO & Founder</p>
+            <p class="small">10+ years of experience in e-commerce</p>
+            <div class="social-links">
+              <a href="#" class="text-primary me-2"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-info me-2"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-danger"><i class="bi bi-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card team-card text-center">
+          <div class="card-body">
+            <img src="images/CTO.jpg" alt="CTO" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+            <h5>Priya Patel</h5>
+            <p class="text-muted">CTO</p>
+            <p class="small">Expert in technology and innovation</p>
+            <div class="social-links">
+              <a href="#" class="text-primary me-2"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-info me-2"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-danger"><i class="bi bi-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card team-card text-center">
+          <div class="card-body">
+            <img src="images/COO.jpg" alt="COO" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+            <h5>Amit Kumar</h5>
+            <p class="text-muted">COO</p>
+            <p class="small">Operations and supply chain expert</p>
+            <div class="social-links">
+              <a href="#" class="text-primary me-2"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-info me-2"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-danger"><i class="bi bi-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card team-card text-center">
+          <div class="card-body">
+            <img src="images/CMO.jpg" alt="CMO" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+            <h5>Neha Singh</h5>
+            <p class="text-muted">CMO</p>
+            <p class="small">Marketing and customer experience</p>
+            <div class="social-links">
+              <a href="#" class="text-primary me-2"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-info me-2"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-danger"><i class="bi bi-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">What Our Customers Say</h2>
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="card testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <img src="images/customer1.jpg" alt="Customer" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+              <div>
+                <h6 class="mb-0">Anjali Desai</h6>
+                <small class="text-muted">Mumbai</small>
+              </div>
+            </div>
+            <p class="card-text">"Amazing service! The products are of excellent quality and delivery was super fast. Highly recommended!"</p>
+            <div class="text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <img src="images/customer2.jpg" alt="Customer" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+              <div>
+                <h6 class="mb-0">Rajesh Verma</h6>
+                <small class="text-muted">Delhi</small>
+              </div>
+            </div>
+            <p class="card-text">"Best prices and great customer support. I've been shopping here for 2 years and never had any issues."</p>
+            <div class="text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <img src="images/customer3.jpg" alt="Customer" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+              <div>
+                <h6 class="mb-0">Sneha Reddy</h6>
+                <small class="text-muted">Bangalore</small>
+              </div>
+            </div>
+            <p class="card-text">"The return process was so smooth. They really care about customer satisfaction. Will definitely shop again!"</p>
+            <div class="text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Statistics -->
+<section class="py-5">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3 mb-4">
+        <div class="stat-card">
+          <i class="bi bi-people display-4 text-primary mb-3"></i>
+          <h3 class="counter" data-target="50000">0</h3>
+          <p class="text-muted">Happy Customers</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="stat-card">
+          <i class="bi bi-box display-4 text-success mb-3"></i>
+          <h3 class="counter" data-target="25000">0</h3>
+          <p class="text-muted">Orders Delivered</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="stat-card">
+          <i class="bi bi-award display-4 text-warning mb-3"></i>
+          <h3 class="counter" data-target="1000">0</h3>
+          <p class="text-muted">Products Available</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="stat-card">
+          <i class="bi bi-star display-4 text-info mb-3"></i>
+          <h3 class="counter" data-target="48">0</h3>
+          <p class="text-muted">Hours Support</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-white py-4">
+  <div class="container text-center">
+    <p>&copy; TANVI SAKHALE 2025 E-Shop. All rights reserved.</p>
+    <p>
+      <a href="about.html" class="text-white">About Us</a> |
+      <a href="contact.html" class="text-white">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button id="scrollTopBtn" class="btn btn-primary position-fixed d-none" style="bottom:20px;right:20px;z-index:1000;">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<script>
+  // Show scroll-to-top button only when scrolling down
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      scrollBtn.classList.remove('d-none');
+    } else {
+      scrollBtn.classList.add('d-none');
+    }
+  };
+  scrollBtn.onclick = function() {
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  
+  // About page specific functionality
+  function showTimeline() {
+    showNotification('Timeline feature coming soon!', 'info');
+  }
+  
+  function showMilestones() {
+    showNotification('Milestones feature coming soon!', 'info');
+  }
+  
+  // Animate counters
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const increment = target / 100;
+      let current = 0;
+      
+      const updateCounter = () => {
+        if (current < target) {
+          current += increment;
+          counter.textContent = Math.ceil(current).toLocaleString();
+          setTimeout(updateCounter, 20);
+        } else {
+          counter.textContent = target.toLocaleString();
+        }
+      };
+      
+      updateCounter();
+    });
+  }
+  
+  // Team card hover effects
+  document.addEventListener('DOMContentLoaded', function() {
+    const teamCards = document.querySelectorAll('.team-card');
+    teamCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+        this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+      });
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = '0 4px 24px rgba(79,70,229,0.08)';
+      });
+    });
+    
+    // Animate counters when they come into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+    
+    const statsSection = document.querySelector('.stat-card');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  });
+</script>
+</body>
+</html>
